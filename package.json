@@ -1,6 +1,6 @@
 {
   "name": "material-ui-selectfield",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "material-ui-selectfield React component",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -19,28 +19,80 @@
     "test:watch": "nwb test-react --server",
     "gpublish": "nwb build-demo && gh-pages -d demo/dist"
   },
-  "dependencies": {},
-  "peerDependencies": {
-    "react": "15.x || 16.x",
-    "material-ui": "^0.19.2",
+  "dependencies": {
+    "material-ui-icons": "1.0.0-beta.15",
     "react-infinite": "^0.12.1",
     "react-virtualized": "^9.10.1",
-    "react-custom-scrollbars": "^4.1.2"
+    "prop-types": "^15.5.10"
+  },
+  "peerDependencies": {
+    "material-ui": ">=1.0.0-beta.13",
+    "material-ui-icons": ">=1.0.0-beta.15",
+    "react": ">=15.6.x",
+    "react-dom": ">=15.6.x",
+    "react-custom-scrollbars": ">=4.1.2",
+    "react-infinite": ">=0.12.1",
+    "react-virtualized": ">=9.10.1"
   },
   "devDependencies": {
+    "babel-eslint": "^8.0.1",
+    "babel-preset-env": "^1.6.0",
+    "material-ui": "1.0.0-beta.13",
     "nwb": "0.18.x",
-    "react": "15.x || 16.x",
-    "react-dom": "^16.0.0",
-    "material-ui": "^0.19.2",
-    "react-infinite": "^0.12.1",
-    "react-virtualized": "^9.10.1",
-    "react-custom-scrollbars": "^4.1.2"
+    "react": "15.6.2",
+    "react-custom-scrollbars": "^4.1.2",
+    "react-dom": "15.6.2"
   },
-  "author": "",
-  "homepage": "",
+  "babel": {
+    "plugins": [
+      "transform-class-properties",
+      "transform-object-rest-spread"
+    ],
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "browsers": [
+              "> 3%",
+              "ie 11",
+              "safari 8"
+            ]
+          },
+          "modules": "commonjs",
+          "debug": false
+        }
+      ],
+      "react"
+    ]
+  },
+  "standard": {
+    "parser": "babel-eslint"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "standard"
+    ],
+    "parser": "babel-eslint",
+    "rules": {
+      "camelcase": "off",
+      "brace-style": "off",
+      "no-trailing-spaces": "off",
+      "no-multiple-empty-lines": "off",
+      "no-unused-vars": "warn"
+    }
+  },
+  "author": "Raphaël Morineau <raphael.morineau@gmail.com>",
   "license": "MIT",
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/robksawyer/material-ui-superselectfield"
+  },
+  "homepage": "https://github.com/robksawyer/material-ui-superselectfield",
   "keywords": [
-    "react-component"
+    "react-component",
+    "material-ui",
+    "material select"
   ]
 }
