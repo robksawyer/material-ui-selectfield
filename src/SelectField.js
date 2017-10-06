@@ -1,14 +1,15 @@
 // import 'babel-polyfill'
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import InfiniteScroller from 'react-infinite'
-import Popover from 'material-ui/Popover/Popover'
-import TextField from 'material-ui/TextField/TextField'
-import ListItem from 'material-ui/List/ListItem'
-import CheckedIcon from 'material-ui/svg-icons/navigation/check'
-import UnCheckedIcon from 'material-ui/svg-icons/toggle/check-box-outline-blank'
-import SelectionsPresenter from './SelectionPresenter'
-import { areEqual, getChildrenLength, checkFormat, objectShape } from './utils'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import InfiniteScroller from 'react-infinite';
+import Popover from 'material-ui/Popover';
+import TextField from 'material-ui/TextField';
+import { ListItem } from 'material-ui/List';
+import CheckedIcon from 'material-ui-icons/Check';
+import UnCheckedIcon from 'material-ui-icons/CheckBoxOutlineBlank';
+import DropDownArrow from 'material-ui-icons/ArrowDropDown';
+import SelectionsPresenter from './SelectionPresenter';
+import { areEqual, getChildrenLength, checkFormat, objectShape } from './utils';
 
 class SelectField extends Component {
   constructor (props, context) {
@@ -528,4 +529,4 @@ SelectField.defaultProps = {
   children: []
 }
 
-export default SelectField
+export default SelectField;
