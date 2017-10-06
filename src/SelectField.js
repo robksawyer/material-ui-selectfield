@@ -7,15 +7,14 @@ import TextField from 'material-ui/TextField';
 import { ListItem } from 'material-ui/List';
 import CheckedIcon from 'material-ui-icons/Check';
 import UnCheckedIcon from 'material-ui-icons/CheckBoxOutlineBlank';
-import DropDownArrow from 'material-ui-icons/ArrowDropDown';
 import SelectionsPresenter from './SelectionPresenter';
 import { areEqual, getChildrenLength, checkFormat, objectShape } from './utils';
 
 class SelectField extends Component {
-  constructor (props, context) {
-    super(props, context)
-    const { children, value, multiple, showAutocompleteThreshold } = props
-    const itemsLength = getChildrenLength(children)
+  constructor (props) {
+    super(props);
+    const { children, value, multiple, showAutocompleteThreshold } = props;
+    const itemsLength = getChildrenLength(children);
     this.state = {
       isOpen: false,
       isFocused: false,
@@ -23,8 +22,8 @@ class SelectField extends Component {
       showAutocomplete: (itemsLength > showAutocompleteThreshold) || false,
       selectedItems: value || (multiple ? [] : null),
       searchText: ''
-    }
-    this.menuItems = []
+    };
+    this.menuItems = [];
   }
 
   componentWillReceiveProps (nextProps) {
@@ -199,12 +198,12 @@ class SelectField extends Component {
       autocompleteFilter, selectionsRenderer, menuCloseButton, anchorOrigin, canAutoPosition,
       style, menuStyle, elementHeight, innerDivStyle, selectedMenuItemStyle, menuGroupStyle, menuFooterStyle,
       floatingLabelStyle, floatingLabelFocusStyle, underlineStyle, underlineFocusStyle,
-      autocompleteUnderlineStyle, autocompleteUnderlineFocusStyle,
+      autocompleteUnderlineStyle, autocompleteUnderlineFocusStyle, classes,
       checkedIcon, unCheckedIcon, hoverColor, checkPosition, errorText
-    } = this.props
+    } = this.props;
 
-    // Default style depending on Material-UI context (muiTheme)
-    const { baseTheme: {palette}, menuItem } = this.context.muiTheme
+    // Default style depending on Material-UI (withStyles)
+    const { baseTheme: {palette}, menuItem } = classes;
 
     const mergedSelectedMenuItemStyle = {
       color: menuItem.selectedTextColor, ...selectedMenuItemStyle
@@ -317,7 +316,6 @@ class SelectField extends Component {
           disabled={disabled}
           hintText={hintText}
           errorText={errorText}
-          muiTheme={this.context.muiTheme}
           selectedValues={this.state.selectedItems}
           selectionsRenderer={selectionsRenderer}
           floatingLabel={floatingLabel}
@@ -387,10 +385,6 @@ class SelectField extends Component {
   }
 }
 
-SelectField.contextTypes = {
-  muiTheme: PropTypes.object.isRequired
-}
-
 SelectField.propTypes = {
   anchorOrigin: PropTypes.shape({
     vertical: PropTypes.oneOf(['top', 'bottom']),
@@ -402,7 +396,7 @@ SelectField.propTypes = {
   checkPosition: PropTypes.oneOf([ '', 'left', 'right' ]),
   checkedIcon: PropTypes.node,
   unCheckedIcon: PropTypes.node,
-  hoverColor: PropTypes.string,
+  // hoverColor: PropTypes.string,
   // children can be either:
   // an html element with a required 'value' property, and optional label prop,
   // an optgroup with valid children (same as bove case),
@@ -470,7 +464,6 @@ SelectField.propTypes = {
   nb2show: PropTypes.number,
   value: (props, propName, componentName, location, propFullName) => {
     const { multiple, value } = props
-    // console.debug(`value ${props.name}`, value)
     if (multiple) {
       if (!Array.isArray(value)) {
         return new Error(`
@@ -500,7 +493,7 @@ SelectField.propTypes = {
   onChange: PropTypes.func,
   onMenuOpen: PropTypes.func,
   onAutoCompleteTyping: PropTypes.func
-}
+};
 
 SelectField.defaultProps = {
   anchorOrigin: { vertical: 'bottom', horizontal: 'left' },
@@ -527,6 +520,6 @@ SelectField.defaultProps = {
   onMenuOpen: () => {},
   onAutoCompleteTyping: () => {},
   children: []
-}
+};
 
 export default SelectField;
