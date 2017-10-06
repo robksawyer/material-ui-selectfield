@@ -15,7 +15,7 @@ https://maximilianpichler.github.io/material-ui-selectfield/
 
 
 ## Installation
-`npm i -S material-ui-selectfield`  
+`yarn add material-ui-selectfield`
 
 
 ## Properties
