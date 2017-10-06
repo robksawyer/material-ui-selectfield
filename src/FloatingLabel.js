@@ -1,4 +1,8 @@
-import React, { Component } from 'react'
+/**
+ * FloatingLabel.js
+ */
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class FloatingLabel extends Component {
   state = { flabelHeight: 0 }
@@ -50,7 +54,12 @@ class FloatingLabel extends Component {
 
 FloatingLabel.defaultProps = {
   disabled: false,
-  shrink: false
+  shrink: false,
 }
 
-export default FloatingLabel
+FloatingLabel.propTypes = {
+  disabled: PropTypes.bool,
+  shrink: PropTypes.bool,
+}
+
+export default FloatingLabel;
