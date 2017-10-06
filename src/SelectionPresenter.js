@@ -1,7 +1,10 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import DropDownArrow from 'material-ui/svg-icons/navigation/arrow-drop-down'
-import FloatingLabel from './FloatingLabel'
+/**
+ * SelectionPresenter.js
+ */
+import React from 'react';
+import PropTypes from 'prop-types';
+import DropDownArrow from 'material-ui-icons/ArrowDropDown';
+import FloatingLabel from './FloatingLabel';
 
 const objectShape = PropTypes.shape({
   value: PropTypes.any.isRequired,
@@ -35,17 +38,19 @@ const styles = {
     msFlex: 1,
     OFlex: 1,
     flex: 1
-  }
-}
+  },
+};
 
 const SelectionsPresenter = ({
   selectedValues, selectionsRenderer,
   floatingLabel, hintText,
-  muiTheme, floatingLabelStyle, floatingLabelFocusStyle,
+  classes, floatingLabelStyle, floatingLabelFocusStyle,
   underlineStyle, underlineFocusStyle,
   isFocused, isOpen, disabled, errorText
 }) => {
-  const { textField: {floatingLabelColor, borderColor, focusColor} } = muiTheme
+  const { textField: {floatingLabelColor, borderColor, focusColor} } = classes;
+
+  console.log(classes);
 
   // Condition for animating floating Label color and underline
   const focusCondition = isFocused || isOpen
@@ -140,4 +145,4 @@ SelectionsPresenter.defaultProps = {
   }
 }
 
-export default SelectionsPresenter
+export default SelectionsPresenter;
