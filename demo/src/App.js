@@ -1,10 +1,9 @@
-import React, { Component } from 'react'
-import AppBar from 'material-ui/AppBar'
-import FlatButton from 'material-ui/FlatButton'
-import Paper from 'material-ui/Paper'
-import SelectField from '../../src'
-import getMuiTheme from 'material-ui/styles/getMuiTheme'
-import FontIcon from 'material-ui/FontIcon'
+import React, { Component } from 'react';
+import AppBar from 'material-ui/AppBar';
+import FlatButton from 'material-ui/FlatButton';
+import Paper from 'material-ui/Paper';
+import SelectField from '../../src';
+import Icon from 'material-ui/Icon';
 
 
 class App extends Component {
@@ -24,7 +23,6 @@ class App extends Component {
       setFilterIsOpen,
       list,
       setSearch,
-      muiTheme
     } = this.props
 
     return (
